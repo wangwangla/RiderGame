@@ -1,0 +1,4 @@
+void main() {
+    vec4 tempColor = v_color* texture2D(u_texture,v_textCoords);
+    gl_FragColor = tempColor * vec4(0.5,0.5,0.5,1);
+}

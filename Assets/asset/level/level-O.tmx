@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="126" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="3" nextobjectid="412">
+ <tileset firstgid="1" name="Enemies" tilewidth="686" tileheight="686" tilecount="6" columns="0">
+  <tile id="0">
+   <image width="429" height="106" source="../Tiled_Assets/enemy_1.png"/>
+  </tile>
+  <tile id="1">
+   <image width="686" height="686" source="../Tiled_Assets/enemy_2.png"/>
+  </tile>
+  <tile id="2">
+   <image width="686" height="498" source="../Tiled_Assets/enemy_3.png"/>
+  </tile>
+  <tile id="3">
+   <image width="165" height="249" source="../Tiled_Assets/enemy_4.png"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="7" name="Platforms" tilewidth="686" tileheight="550" tilecount="47" columns="0">
+  <tile id="0">
+   <image width="119" height="120" source="../Tiled_Assets/pf_1.png"/>
+  </tile>
+  <tile id="1">
+   <image width="186" height="186" source="../Tiled_Assets/pf_2.png"/>
+  </tile>
+  <tile id="10">
+   <image width="220" height="176" source="../Tiled_Assets/pf_7_small.png"/>
+  </tile>
+  <tile id="11">
+   <image width="12" height="240" source="../Tiled_Assets/pf_8-1_large.png"/>
+  </tile>
+  <tile id="12">
+   <image width="12" height="161" source="../Tiled_Assets/pf_8-1_medium.png"/>
+  </tile>
+  <tile id="13">
+   <image width="12" height="121" source="../Tiled_Assets/pf_8-1_small.png"/>
+  </tile>
+  <tile id="14">
+   <image width="83" height="12" source="../Tiled_Assets/pf_8-2_large.png"/>
+  </tile>
+  <tile id="15">
+   <image width="56" height="12" source="../Tiled_Assets/pf_8-2_medium.png"/>
+  </tile>
+  <tile id="16">
+   <image width="42" height="12" source="../Tiled_Assets/pf_8-2_small.png"/>
+  </tile>
+  <tile id="17">
+   <image width="426" height="214" source="../Tiled_Assets/pf_9_large.png"/>
+  </tile>
+  <tile id="18">
+   <image width="288" height="144" source="../Tiled_Assets/pf_9_medium.png"/>
+  </tile>
+  <tile id="19">
+   <image width="220" height="110" source="../Tiled_Assets/pf_9_small.png"/>
+  </tile>
+  <tile id="2">
+   <image width="244" height="130" source="../Tiled_Assets/pf_3.png"/>
+  </tile>
+  <tile id="20">
+   <image width="220" height="220" source="../Tiled_Assets/pf_10_large.png"/>
+  </tile>
+  <tile id="21">
+   <image width="150" height="151" source="../Tiled_Assets/pf_10_medium.png"/>
+  </tile>
+  <tile id="22">
+   <image width="116" height="116" source="../Tiled_Assets/pf_10_small.png"/>
+  </tile>
+  <tile id="23">
+   <image width="281" height="12" source="../Tiled_Assets/pf_11_large.png"/>
+  </tile>
+  <tile id="24">
+   <image width="188" height="12" source="../Tiled_Assets/pf_11_medium.png"/>
+  </tile>
+  <tile id="25">
+   <image width="141" height="12" source="../Tiled_Assets/pf_11_small.png"/>
+  </tile>
+  <tile id="26">
+   <image width="279" height="377" source="../Tiled_Assets/pf_12_large.png"/>
+  </tile>
+  <tile id="27">
+   <image width="189" height="255" source="../Tiled_Assets/pf_12_medium.png"/>
+  </tile>
+  <tile id="28">
+   <image width="143" height="193" source="../Tiled_Assets/pf_12_small.png"/>
+  </tile>
+  <tile id="29">
+   <image width="234" height="51" source="../Tiled_Assets/pf_13-1_large.png"/>
+  </tile>
+  <tile id="3">
+   <image width="218" height="56" source="../Tiled_Assets/pf_4.png"/>
+  </tile>
+  <tile id="30">
+   <image width="160" height="38" source="../Tiled_Assets/pf_13-1_medium.png"/>
+  </tile>
+  <tile id="31">
+   <image width="122" height="31" source="../Tiled_Assets/pf_13-1_small.png"/>
+  </tile>
+  <tile id="32">
+   <image width="138" height="158" source="../Tiled_Assets/pf_13-2_large.png"/>
+  </tile>
+  <tile id="33">
+   <image width="94" height="108" source="../Tiled_Assets/pf_13-2_medium.png"/>
+  </tile>
+  <tile id="34">
+   <image width="74" height="84" source="../Tiled_Assets/pf_13-2_small.png"/>
+  </tile>
+  <tile id="35">
+   <image width="480" height="190" source="../Tiled_Assets/pf_14_large.png"/>
+  </tile>
+  <tile id="36">
+   <image width="321" height="130" source="../Tiled_Assets/pf_14_medium.png"/>
+  </tile>
+  <tile id="37">
+   <image width="241" height="102" source="../Tiled_Assets/pf_14_small.png"/>
+  </tile>
+  <tile id="38">
+   <image width="166" height="166" source="../Tiled_Assets/pf_15_large.png"/>
+  </tile>
+  <tile id="39">
+   <image width="114" height="114" source="../Tiled_Assets/pf_15_medium.png"/>
+  </tile>
+  <tile id="4">
+   <image width="249" height="12" source="../Tiled_Assets/pf_5.png"/>
+  </tile>
+  <tile id="40">
+   <image width="89" height="89" source="../Tiled_Assets/pf_15_small.png"/>
+  </tile>
+  <tile id="41">
+   <image width="166" height="166" source="../Tiled_Assets/pf_16_large.png"/>
+  </tile>
+  <tile id="42">
+   <image width="114" height="114" source="../Tiled_Assets/pf_16_medium.png"/>
+  </tile>
+  <tile id="43">
+   <image width="89" height="89" source="../Tiled_Assets/pf_16_small.png"/>
+  </tile>
+  <tile id="44">
+   <image width="48" height="119" source="../Tiled_Assets/pf_17_large.png"/>
+  </tile>
+  <tile id="45">
+   <image width="32" height="80" source="../Tiled_Assets/pf_17_medium.png"/>
+  </tile>
+  <tile id="46">
+   <image width="24" height="60" source="../Tiled_Assets/pf_17_small.png"/>
+  </tile>
+  <tile id="5">
+   <image width="481" height="232" source="../Tiled_Assets/pf_18_large.png"/>
+  </tile>
+  <tile id="6">
+   <image width="321" height="158" source="../Tiled_Assets/pf_18_medium.png"/>
+  </tile>
+  <tile id="7">
+   <image width="241" height="122" source="../Tiled_Assets/pf_18_small.png"/>
+  </tile>
+  <tile id="8">
+   <image width="426" height="341" source="../Tiled_Assets/pf_7_large.png"/>
+  </tile>
+  <tile id="9">
+   <image width="288" height="231" source="../Tiled_Assets/pf_7_medium.png"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="54" name="Grounds" tilewidth="480" tileheight="763" tilecount="16" columns="0">
+  <tile id="0">
+   <image width="110" height="697" source="../Tiled_Assets/pf_ground_1.png"/>
+  </tile>
+  <tile id="1">
+   <image width="177" height="763" source="../Tiled_Assets/pf_ground_2.png"/>
+  </tile>
+  <tile id="10">
+   <image width="280" height="383" source="../Tiled_Assets/pf_ground_12.png"/>
+  </tile>
+  <tile id="11">
+   <image width="480" height="150" source="../Tiled_Assets/pf_ground_13.png"/>
+  </tile>
+  <tile id="12">
+   <image width="480" height="277" source="../Tiled_Assets/pf_ground_14.png"/>
+  </tile>
+  <tile id="13">
+   <image width="154" height="155" source="../Tiled_Assets/pf_ground_15.png"/>
+  </tile>
+  <tile id="14">
+   <image width="480" height="257" source="../Tiled_Assets/pf_ground_18.png"/>
+  </tile>
+  <tile id="15">
+   <image width="78" height="734" source="../Tiled_Assets/pf_ground_end.png"/>
+  </tile>
+  <tile id="2">
+   <image width="235" height="704" source="../Tiled_Assets/pf_ground_3.png"/>
+  </tile>
+  <tile id="3">
+   <image width="223" height="619" source="../Tiled_Assets/pf_ground_4.png"/>
+  </tile>
+  <tile id="4">
+   <image width="250" height="579" source="../Tiled_Assets/pf_ground_5.png"/>
+  </tile>
+  <tile id="5">
+   <image width="196" height="619" source="../Tiled_Assets/pf_ground_6.png"/>
+  </tile>
+  <tile id="6">
+   <image width="413" height="332" source="../Tiled_Assets/pf_ground_7.png"/>
+  </tile>
+  <tile id="7">
+   <image width="56" height="160" source="../Tiled_Assets/pf_ground_8.png"/>
+  </tile>
+  <tile id="8">
+   <image width="413" height="207" source="../Tiled_Assets/pf_ground_9.png"/>
+  </tile>
+  <tile id="9">
+   <image width="281" height="384" source="../Tiled_Assets/pf_ground_11.png"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="70" name="Currency" tilewidth="81" tileheight="106" tilecount="1" columns="0">
+  <tile id="2">
+   <image width="81" height="106" source="../Tiled_Assets/pickup_currency.png"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="73" name="Grounds" tilewidth="480" tileheight="763" tilecount="16" columns="0">
+  <tile id="0">
+   <image width="110" height="697" source="../../levels/Tiled_Assets/pf_ground_1.png"/>
+  </tile>
+  <tile id="1">
+   <image width="177" height="763" source="../../levels/Tiled_Assets/pf_ground_2.png"/>
+  </tile>
+  <tile id="10">
+   <image width="280" height="383" source="../../levels/Tiled_Assets/pf_ground_12.png"/>
+  </tile>
+  <tile id="11">
+   <image width="480" height="150" source="../../levels/Tiled_Assets/pf_ground_13.png"/>
+  </tile>
+  <tile id="12">
+   <image width="480" height="277" source="../../levels/Tiled_Assets/pf_ground_14.png"/>
+  </tile>
+  <tile id="13">
+   <image width="154" height="155" source="../../levels/Tiled_Assets/pf_ground_15.png"/>
+  </tile>
+  <tile id="14">
+   <image width="480" height="257" source="../../levels/Tiled_Assets/pf_ground_18.png"/>
+  </tile>
+  <tile id="15">
+   <image width="78" height="734" source="../../levels/Tiled_Assets/pf_ground_end.png"/>
+  </tile>
+  <tile id="2">
+   <image width="235" height="704" source="../../levels/Tiled_Assets/pf_ground_3.png"/>
+  </tile>
+  <tile id="3">
+   <image width="223" height="619" source="../../levels/Tiled_Assets/pf_ground_4.png"/>
+  </tile>
+  <tile id="4">
+   <image width="250" height="579" source="../../levels/Tiled_Assets/pf_ground_5.png"/>
+  </tile>
+  <tile id="5">
+   <image width="196" height="619" source="../../levels/Tiled_Assets/pf_ground_6.png"/>
+  </tile>
+  <tile id="6">
+   <image width="413" height="332" source="../../levels/Tiled_Assets/pf_ground_7.png"/>
+  </tile>
+  <tile id="7">
+   <image width="56" height="160" source="../../levels/Tiled_Assets/pf_ground_8.png"/>
+  </tile>
+  <tile id="8">
+   <image width="413" height="207" source="../../levels/Tiled_Assets/pf_ground_9.png"/>
+  </tile>
+  <tile id="9">
+   <image width="281" height="384" source="../../levels/Tiled_Assets/pf_ground_11.png"/>
+  </tile>
+ </tileset>
+ <objectgroup id="1" name="Ground">
+  <object id="123" type="ground" gid="61" x="-10.5455" y="1548.6" width="205.395" height="951.355" rotation="90"/>
+  <object id="157" type="ground" gid="61" x="913.667" y="1549.76" width="204.238" height="1142.42" rotation="90"/>
+  <object id="370" type="ground" gid="61" x="2993.67" y="1516.22" width="237.784" height="1195.63" rotation="90"/>
+  <object id="369" type="ground" gid="61" x="2033.67" y="1553.23" width="200.768" height="1142.42" rotation="90"/>
+  <object id="390" type="ground" gid="61" x="-219.015" y="1289.64" width="464.356" height="409.966" rotation="90"/>
+  <object id="392" type="ground" gid="66" x="125.529" y="1605.9" width="554.553" height="314.016"/>
+  <object id="393" type="ground" gid="2147483703" x="609.513" y="1550.46" width="92.5581" height="823.15"/>
+  <object id="394" type="ground" gid="2147483716" x="1418.76" y="1556.57" width="480" height="257"/>
+  <object id="395" type="ground" gid="2147483716" x="2271.28" y="1546.46" width="315.743" height="174.872"/>
+  <object id="396" type="ground" gid="68" x="2594.01" y="1547.03" width="315.743" height="174.872"/>
+  <object id="397" type="ground" gid="2147483716" x="3160.81" y="1537.78" width="234.771" height="133.229"/>
+  <object id="398" type="ground" gid="61" x="2273.11" y="1518.04" width="209.831" height="654.277" rotation="90"/>
+  <object id="399" type="ground" gid="69" x="2970.66" y="1782.27" width="45.3027" height="412.891" rotation="-14.3093"/>
+  <object id="400" type="ground" gid="69" x="3213.6" y="1429.44" width="67.5717" height="211.525" rotation="206.696"/>
+  <object id="401" type="ground" gid="69" x="3173.16" y="1529" width="67.5717" height="317.922" rotation="-101.305"/>
+  <object id="402" type="ground" gid="69" x="2352.57" y="1411.96" width="98.6515" height="385.408" rotation="206.696"/>
+  <object id="403" type="ground" gid="69" x="2355.5" y="1556.45" width="44.2968" height="466.143" rotation="-90.1248"/>
+  <object id="404" type="ground" gid="69" x="722.775" y="1211.8" width="51.9265" height="457.178" rotation="-14.1721"/>
+  <object id="405" type="ground" gid="69" x="796.431" y="1816.81" width="92.916" height="732.023" rotation="-10.6345"/>
+  <object id="406" type="ground" gid="61" x="673.962" y="1311.74" width="266.261" height="76.8984" rotation="90"/>
+  <object id="407" type="ground" gid="69" x="1425.03" y="1552.54" width="60.1828" height="618.794" rotation="-90.1248"/>
+  <object id="408" type="ground" gid="69" x="1492.04" y="1326.2" width="86.3962" height="618.794" rotation="-161.368"/>
+  <object id="409" type="ground" gid="69" x="1.71522" y="1336.6" width="60.1828" height="618.794" rotation="-90.1248"/>
+  <object id="410" type="ground" gid="69" x="4417" y="1564" width="80.175" height="521.492" rotation="-92.2897"/>
+ </objectgroup>
+ <objectgroup id="2" name="Top">
+  <object id="287" type="platform" gid="30" x="3399" y="1519" width="498.333" height="12"/>
+  <object id="371" type="platform" gid="31" x="0" y="1293" width="188" height="12"/>
+  <object id="372" type="platform" gid="24" x="187" y="1495.5" width="426" height="214"/>
+  <object id="373" type="platform" gid="30" x="601" y="762.565" width="520.278" height="12" rotation="90"/>
+  <object id="378" type="platform" gid="24" x="734.333" y="843" width="426" height="214">
+   <properties>
+    <property name="animAnchorX" type="float" value="0.5"/>
+    <property name="animAnchorY" type="float" value="0.5"/>
+    <property name="animLoops" type="int" value="1"/>
+    <property name="animRotation" value="[[20,500,&quot;inOutQuad&quot;,0]]"/>
+    <property name="animStartOnCollision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="379" type="platform" gid="2147483678" x="613" y="763" width="281" height="12" rotation="-90">
+   <properties>
+    <property name="animLoops" type="int" value="1"/>
+    <property name="animRotation" value="[[90,500,&quot;inOutQuad&quot;,800]]"/>
+    <property name="animStartOnCollision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="381" type="platform" gid="24" x="1445.1" y="1135.87" width="426" height="214">
+   <properties>
+    <property name="animAnchorX" type="float" value="0.5"/>
+    <property name="animAnchorY" type="float" value="0.5"/>
+    <property name="animLoops" type="int" value="1"/>
+    <property name="animRotation" value="[[-40,500,&quot;inOutQuad&quot;,0]]"/>
+    <property name="animStartOnCollision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="382" type="platform" gid="24" x="838.253" y="1349.54" width="426" height="214">
+   <properties>
+    <property name="animAnchorX" type="float" value="0.5"/>
+    <property name="animAnchorY" type="float" value="0.5"/>
+    <property name="animLoops" type="int" value="1"/>
+    <property name="animRotation" value="[[50,500,&quot;inOutQuad&quot;,0]]"/>
+    <property name="animStartOnCollision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="383" type="platform" gid="2147483660" x="1419.59" y="1520.15" width="481" height="232"/>
+  <object id="386" type="platform" gid="24" x="2113.58" y="1520.26" width="426" height="214" rotation="-90">
+   <properties>
+    <property name="animAnchorX" type="float" value="0.5"/>
+    <property name="animAnchorY" type="float" value="0"/>
+    <property name="animLoops" type="int" value="1"/>
+    <property name="animRotation" value="[[-230,1600,&quot;inOutQuad&quot;,200]]"/>
+    <property name="animStartOnCollision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="387" type="platform" gid="2147483661" x="2269.36" y="1522.01" width="321" height="158"/>
+  <object id="388" type="platform" gid="13" x="2590.36" y="1522.01" width="321" height="158"/>
+  <object id="389" type="platform" gid="2147483662" x="3159.01" y="1519.18" width="241" height="122"/>
+ </objectgroup>
+</map>
