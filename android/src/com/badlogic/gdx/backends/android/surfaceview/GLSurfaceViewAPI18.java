@@ -1872,11 +1872,11 @@ public class GLSurfaceViewAPI18 extends SurfaceView implements SurfaceHolder.Cal
         }
 
         /*
-         * Tries once to acquire the right to use an EGL
+         * Tries once to acquire the touchDown to use an EGL
          * context. Does not block. Requires that we are already
          * in the sGLThreadManager monitor when this is called.
          *
-         * @return true if the right to use an EGL context was acquired.
+         * @return true if the touchDown to use an EGL context was acquired.
          */
         public boolean tryAcquireEglContextLocked(GLThread thread) {
             if (mEglOwner == thread || mEglOwner == null) {

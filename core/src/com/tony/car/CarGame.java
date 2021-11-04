@@ -1,4 +1,4 @@
-package com.tony.bricks;
+package com.tony.car;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
@@ -7,23 +7,22 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.CpuPolygonSpriteBatch;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
-import com.tony.bricks.constant.Constant;
-import com.tony.bricks.screen.LoadingScreen;
-import com.ui.ManagerUIEditor;
-import com.ui.loader.ManagerUILoader;
-import com.ui.plist.PlistAtlas;
-import com.ui.plist.PlistAtlasLoader;
+import com.tony.car.constant.Constant;
+import com.tony.car.manage.ManagerScreen;
+import com.tony.car.screen.LoadingScreen;
 
-public class RiderGame extends Game {
-    private Batch batch;
+public class CarGame extends Game {
+    public static Batch batch;
     public AssetManager assetManager;
-    public ExtendViewport viewport;
-    public ExtendViewport stageViewport;
+    public static  ExtendViewport viewport;
+    public static ExtendViewport stageViewport;
+    private ManagerScreen managerScreen;
 
     @Override
     public void create() {
         initInstance();
-        setScreen(new LoadingScreen(this));
+        managerScreen = new ManagerScreen();
+        managerScreen.setStatus(0);
     }
 
     private void initInstance(){
@@ -33,8 +32,6 @@ public class RiderGame extends Game {
         resize(Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
         batch = new CpuPolygonSpriteBatch();
         assetManager = new AssetManager();
-        assetManager.setLoader(ManagerUIEditor.class,new ManagerUILoader(assetManager.getFileHandleResolver()));
-        assetManager.setLoader(PlistAtlas.class, new PlistAtlasLoader(assetManager.getFileHandleResolver()));
     }
 
     @Override
@@ -48,13 +45,16 @@ public class RiderGame extends Game {
         stageViewport.apply();
         Constant.GAMEWIDTH = stageViewport.getWorldWidth();
         Constant.GAMEHIGHT = stageViewport.getWorldHeight();
+        if (managerScreen!=null) {
+            managerScreen.resize(width, height);
+        }
     }
 
     @Override
     public void render() {
         Gdx.gl.glClearColor(0.5F, 0.5F, 0.5F, 1f);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
-        super.render();
+        managerScreen.update();
     }
 
     @Override
@@ -66,5 +66,10 @@ public class RiderGame extends Game {
             batch.dispose();
             batch = null;
         }
+        managerScreen.dispose();
+    }
+
+    public ExtendViewport getStageViewport() {
+        return stageViewport;
     }
 }

@@ -194,8 +194,8 @@ public class Car extends BodyHolder {
     }
 
     /**
-     * Setting turn direction either to left or right
-     * @param turnDirection turn direction left or right
+     * Setting turn direction either to left or touchDown
+     * @param turnDirection turn direction left or touchDown
      */
     public void setTurnDirection(final int turnDirection) {
         this.mTurnDirection = turnDirection;

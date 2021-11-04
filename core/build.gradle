@@ -4,6 +4,8 @@ sourceCompatibility = 1.8
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 dependencies {
     implementation project(':gdx')
+    implementation files('lib/ashley-1.7.0.jar')
+    implementation files('lib/ashley-1.7.0-sources.jar')
 }
 
 sourceSets.main.java.srcDirs = [

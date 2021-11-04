@@ -5,7 +5,7 @@ import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.tools.texturepacker.TexturePacker;
-import com.tony.bricks.RiderGame;
+import com.tony.car.CarGame;
 
 public class DesktopLauncher {
     private static Runnable runnable ;
@@ -17,7 +17,7 @@ public class DesktopLauncher {
         config.height = 640;
         config.x = 600;
         config.y = 100;
-        new LwjglApplication(new RiderGame(),config);
+        new LwjglApplication(new CarGame(),config);
     }
 
     static String[] atlasFileName = {"othe"};

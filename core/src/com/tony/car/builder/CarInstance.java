@@ -1,6 +1,9 @@
-package com.tony.bricks.worldBuilder;
+package com.tony.car.builder;
 
+import com.badlogic.ashley.core.Engine;
+import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
@@ -12,28 +15,40 @@ import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.physics.box2d.joints.WheelJoint;
 import com.badlogic.gdx.physics.box2d.joints.WheelJointDef;
-import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.Align;
-import com.tony.bricks.constant.Constant;
+import com.codeandweb.physicseditor.PhysicsShapeCache;
+import com.tony.car.component.CameraComponent;
+import com.tony.car.component.CarComponent;
+import com.tony.car.component.WheelComponent;
+import com.tony.car.component.MoveComponent;
+import com.tony.car.component.TextureComponent;
+import com.tony.car.component.TransformComponent;
+import com.tony.car.constant.Constant;
 
-import static com.tony.bricks.constant.Constant.PPM;
+import static com.tony.car.constant.Constant.PPM;
 
 public class CarInstance {
+
     private Body rearWheelBody;
     private Body carBody;
     private Image carTexture;
     //position
     float baseX = 2;
-    float baseY = 5;
+    float baseY = 10;
     //力
-    float force = 50;
+    float force = 60;
     //
-    Vector2 carAngSpeed = new Vector2(0,0);
+    Vector2 carAngSpeed = new Vector2(1,0);
     private WheelJoint m_spring1;
-    Vector2 forceDown = new Vector2(120,0);
+    Vector2 forceDown = new Vector2(140,0);
 
-    public void createCar(World world,Group group){
+    private Engine engine;
+    public CarInstance(Engine engine) {
+        this.engine = engine;
+    }
+
+    public void createCar(World world){
         float m_hz =15.0f;
         float m_zeta = 0.7f;
         float d = 0.1F;
@@ -50,12 +65,19 @@ public class CarInstance {
         CircleShape circle = new CircleShape();
         circle.setRadius(0.16f);
         BodyDef bd = new BodyDef();
+
         bd.type = BodyDef.BodyType.DynamicBody;
         bd.position.set(baseX+0.0f,baseY+0.4f);
-        carBody = world.createBody(bd);
-        carBody.createFixture(chassis, 8.85f);
+//        carBody = world.createBody(bd);
+//        carBody.createFixture(chassis, 8.85f);
+        PhysicsShapeCache physicsShapeCache = new PhysicsShapeCache("carDemo.xml");
+        carBody = physicsShapeCache.createBody("cardemo",world,PPM,PPM);
+//        carBody.getPosition().set(baseX,baseY+0.4f);
+        carBody.setTransform(baseX-0.67F,baseY+0.25f,0);
+//        bd.position.set(baseX+0.0f,baseY+0.4f);
+
         MassData massData = carBody.getMassData();
-        massData.center.y = -10.0F;
+        massData.center.set(0.9F,0F);
         FixtureDef fd = new FixtureDef();
         fd.shape = circle;
         fd.density = 39f;
@@ -69,6 +91,7 @@ public class CarInstance {
         bd.position.set(baseX+0.7f/2, baseY+0.4f);
         Body m_wheel2 = world.createBody(bd);
         m_wheel2.createFixture(fd);
+
         WheelJointDef jd = new WheelJointDef();
         Vector2 axis = new Vector2(0.0f, 1.0f);
 
@@ -88,7 +111,21 @@ public class CarInstance {
         jd.dampingRatio = m_zeta;
         world.createJoint(jd);
         carTexture = new Image(new Texture("cardemo.png"));
-        group.addActor(carTexture);
+
+        Entity car = new Entity();
+        WheelComponent wheelComponent = new WheelComponent();
+        wheelComponent.setWheelJoint(m_spring1);
+        car.add(wheelComponent);
+        car.add(new TransformComponent(carBody.getPosition(),0));
+        car.add(new TextureComponent(new TextureRegion(new Texture("cardemo.png"))));
+        car.add(new MoveComponent(carBody));
+        engine.addEntity(car);
+        carBody.setUserData(car);
+
+        Entity entity = new Entity();
+        entity.add(new CarComponent(carBody));
+        entity.add(new CameraComponent(Constant.camera));
+        engine.addEntity(entity);
     }
 
     public void setAngularDamping(int angularDamping) {
@@ -118,10 +155,7 @@ public class CarInstance {
     public void setDownForce() {
         float angle = carBody.getAngle();
         float v = (float)Math.toDegrees(angle);
-        if (Constant.jiechu) {
-            forceDown.setAngle(v - 90.0F);
-            carBody.applyForceToCenter(forceDown, true);
-        }
+
     }
 
     public void stop() {
