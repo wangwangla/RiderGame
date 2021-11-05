@@ -7,6 +7,9 @@ import com.badlogic.ashley.systems.IteratingSystem;
 import com.tony.car.component.MoveComponent;
 import com.tony.car.component.TransformComponent;
 
+/**
+ * 移动系统  给
+ */
 public class MoveSystem extends IteratingSystem {
     private ComponentMapper<MoveComponent> movementM = ComponentMapper.getFor(MoveComponent.class);
     private ComponentMapper<TransformComponent> transformM = ComponentMapper.getFor(TransformComponent.class);

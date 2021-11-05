@@ -69,7 +69,4 @@ public class CarGame extends Game {
         managerScreen.dispose();
     }
 
-    public ExtendViewport getStageViewport() {
-        return stageViewport;
-    }
 }

@@ -10,8 +10,9 @@ import com.tony.car.CarGame;
 import com.tony.car.component.TextureComponent;
 import com.tony.car.component.TransformComponent;
 
-
-
+/**
+ * 渲染系统  得到位置   拿到纹理进行绘制
+ */
 public class RenderSystem extends IteratingSystem {
     private final Array<Entity> renderArray;
     private Batch batch;

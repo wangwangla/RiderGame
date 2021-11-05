@@ -24,25 +24,15 @@ import com.tony.car.component.WheelComponent;
 import com.tony.car.component.MoveComponent;
 import com.tony.car.component.TextureComponent;
 import com.tony.car.component.TransformComponent;
+import com.tony.car.constant.CarConfig;
 import com.tony.car.constant.Constant;
 
 import static com.tony.car.constant.Constant.PPM;
 
 public class CarInstance {
-
     private Body rearWheelBody;
     private Body carBody;
     private Image carTexture;
-    //position
-    float baseX = 2;
-    float baseY = 10;
-    //力
-    float force = 60;
-    //
-    Vector2 carAngSpeed = new Vector2(1,0);
-    private WheelJoint m_spring1;
-    Vector2 forceDown = new Vector2(140,0);
-
     private Engine engine;
     public CarInstance(Engine engine) {
         this.engine = engine;
@@ -67,13 +57,13 @@ public class CarInstance {
         BodyDef bd = new BodyDef();
 
         bd.type = BodyDef.BodyType.DynamicBody;
-        bd.position.set(baseX+0.0f,baseY+0.4f);
+        bd.position.set(CarConfig.baseX +0.0f,CarConfig.baseY+0.4f);
 //        carBody = world.createBody(bd);
 //        carBody.createFixture(chassis, 8.85f);
         PhysicsShapeCache physicsShapeCache = new PhysicsShapeCache("carDemo.xml");
         carBody = physicsShapeCache.createBody("cardemo",world,PPM,PPM);
 //        carBody.getPosition().set(baseX,baseY+0.4f);
-        carBody.setTransform(baseX-0.67F,baseY+0.25f,0);
+        carBody.setTransform(CarConfig.baseX-0.67F,CarConfig.baseY+0.25f,0);
 //        bd.position.set(baseX+0.0f,baseY+0.4f);
 
         MassData massData = carBody.getMassData();
@@ -84,11 +74,11 @@ public class CarInstance {
         fd.friction = 1F;
         Filter filter = fd.filter;
         filter.groupIndex = 10;
-        bd.position.set(baseX-0.7f/2, baseY+0.35f);
+        bd.position.set(CarConfig.baseX-0.7f/2, CarConfig.baseY+0.35f);
         rearWheelBody = world.createBody(bd);
         rearWheelBody.createFixture(fd);
 
-        bd.position.set(baseX+0.7f/2, baseY+0.4f);
+        bd.position.set(CarConfig.baseX+0.7f/2, CarConfig.baseY+0.4f);
         Body m_wheel2 = world.createBody(bd);
         m_wheel2.createFixture(fd);
 
@@ -97,15 +87,15 @@ public class CarInstance {
 
         jd.initialize(carBody, rearWheelBody, rearWheelBody.getPosition(), axis);
         jd.motorSpeed = 0.0f;
-        jd.maxMotorTorque = force;
+        jd.maxMotorTorque = CarConfig.force;
         jd.enableMotor = true;
         jd.frequencyHz = m_hz;
         jd.dampingRatio = m_zeta;
-        m_spring1 = (WheelJoint) world.createJoint(jd);
+        WheelJoint m_spring1 = (WheelJoint) world.createJoint(jd);
 
         jd.initialize(carBody, m_wheel2, m_wheel2.getPosition(), axis);
         jd.motorSpeed = 0.0f;
-        jd.maxMotorTorque = force;
+        jd.maxMotorTorque = CarConfig.force;
         jd.enableMotor = false;
         jd.frequencyHz = m_hz;
         jd.dampingRatio = m_zeta;
@@ -119,6 +109,7 @@ public class CarInstance {
         car.add(new TransformComponent(carBody.getPosition(),0));
         car.add(new TextureComponent(new TextureRegion(new Texture("cardemo.png"))));
         car.add(new MoveComponent(carBody));
+        car.add(new CarComponent(carBody));
         engine.addEntity(car);
         carBody.setUserData(car);
 
@@ -128,44 +119,6 @@ public class CarInstance {
         engine.addEntity(entity);
     }
 
-    public void setAngularDamping(int angularDamping) {
-        carBody.setAngularDamping(angularDamping);
-    }
-
-    public void setAngularVelocity(int angularDamping) {
-        carBody.setAngularVelocity(angularDamping);
-    }
-
-    /*
-    * 在某一点上施加冲动。这会立即修改速度。它还修改了角速度，如果
-    *应用程序不在质量中心。这唤醒了身体。
-    * */
-    public void applyLinearImpulse(float speed) {
-        float angle = carBody.getAngle();
-        float v = (float)Math.toDegrees(angle);
-        carBody.applyLinearImpulse(carAngSpeed.set(speed, 0).scl(carBody.getMass()),carBody.getWorldCenter(), true);
-    }
-
-    public void setMotorSpeed(float speed) {
-        m_spring1.enableMotor(true);
-        m_spring1.setMotorSpeed(-speed);
-    }
-
-
-    public void setDownForce() {
-        float angle = carBody.getAngle();
-        float v = (float)Math.toDegrees(angle);
-
-    }
-
-    public void stop() {
-        setAngularVelocity(0);
-        m_spring1.enableMotor(false);
-    }
-
-    public void setLinearDamping(int linearDamping) {
-        carBody.setLinearDamping(linearDamping);
-    }
 
     public float getAngle() {
         return carBody.getAngle();

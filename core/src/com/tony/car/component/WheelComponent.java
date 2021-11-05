@@ -7,21 +7,13 @@ public class WheelComponent implements Component {
     public float staus;
     public WheelJoint wheelJoint;
 
+    public float speed  = 50;
+
     public void setStaus(float staus) {
         this.staus = staus;
     }
 
     public void setWheelJoint(WheelJoint wheelJoint) {
         this.wheelJoint = wheelJoint;
-    }
-
-    public void touchDown() {
-        wheelJoint.enableMotor(true);
-        wheelJoint.setMotorSpeed(-100);
-    }
-
-    public void stop() {
-        wheelJoint.enableMotor(false);
-        wheelJoint.setMotorSpeed(0);
     }
 }

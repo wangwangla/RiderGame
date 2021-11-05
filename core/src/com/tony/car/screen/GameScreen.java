@@ -21,6 +21,7 @@ import com.tony.car.syetem.CarSystem;
 import com.tony.car.syetem.MoveSystem;
 
 import com.tony.car.syetem.RenderSystem;
+import com.tony.car.worldListener.WorldListener;
 
 public class GameScreen extends BaseScreen {
     private World world;
@@ -49,9 +50,7 @@ public class GameScreen extends BaseScreen {
         engine.addSystem(new CamraSystem());
         WorldBuilder builder = new WorldBuilder(engine);
         builder.build(tiledMap,world,physicsBodies);
-
-
-
+        world.setContactListener(new WorldListener());
     }
 
     @Override

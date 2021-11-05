@@ -33,5 +33,6 @@ public class Constant {
      * crame
      */
     public static OrthographicCamera camera;
+    public static boolean jiechu = false;
 
 }

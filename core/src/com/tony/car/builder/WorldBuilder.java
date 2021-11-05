@@ -96,14 +96,6 @@ public class WorldBuilder {
         }
     }
 
-    public void right(){
-        carInstance.setMotorSpeed(-m_speed);
-        carInstance.setDownForce();
-    }
-
-    public void stop() {
-        carInstance.stop();
-    }
 
     public void setPosition(Camera camera) {
         Vector2 position = carInstance.getPosition();
