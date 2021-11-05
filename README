@@ -1,0 +1,55 @@
+# Rider
+
+第一次尝试使用新的方式来做，项目的场景切换使用一个ScreenManger来完成，他根据当前的状态切换不同的场景。
+游戏内部使用ashley，在游戏中分系统和组件，通过引擎驱动。
+
+## Ashley实现原理
+
+首先整个东西分为引擎、组件、系统和实体。我们关心他们三个。一个简单执行流程。
+引擎和系统的实体的关系密切，对于组件和实体代码层面没有太多的关联。
+1. 初始化引擎，初始化的过程中对一些参数进行初始化。
+2. 创建系统并添加。
+3. 创建实体，并在实体中加入组件。
+4. 更新引擎，执行引擎的update方法。
+
+所有的创建步骤。
+
+## 引擎更新过程干了什么？？
+源码是这样的：
+```java
+for(int i = 0; i < this.systems.size; ++i) {
+	EntitySystem system = (EntitySystem)this.systems.get(i);
+	if (system.checkProcessing()) {
+		system.update(deltaTime);
+	}
+	this.processComponentOperations();
+	this.processPendingEntityOperations();
+}
+```
+遍历所有的系统，执行系统的update方法。至于系统updata方法，不同的系统有不同的执行逻辑，比如迭代系统，直接执行系统的processEntity方法，他是一个由用户实现的方法。
+
+### 迭代方法
+迭代方法实现
+```java
+    public void update(float deltaTime) {
+        for(int i = 0; i < this.entities.size(); ++i) {
+            this.processEntity((Entity)this.entities.get(i), deltaTime);
+        }
+
+    }
+```
+### 间隔系统
+有个计数器进行计数，计数结束之后，执行。
+```java
+    public final void update(float deltaTime) {
+        this.accumulator += deltaTime;
+
+        while(this.accumulator >= this.interval) {
+            this.accumulator -= this.interval;
+            this.updateInterval();
+        }
+
+    }
+```
+## 总结
+引擎加入系统，加入实体之后，执行更新方法。

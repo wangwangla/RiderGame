@@ -19,7 +19,6 @@ public class RenderSystem extends IteratingSystem {
     private final ComponentMapper<TransformComponent> transformM = ComponentMapper.getFor(TransformComponent.class);
     private final ComponentMapper<TextureComponent> rendererM = ComponentMapper.getFor(TextureComponent.class);
 
-
     public RenderSystem() {
         super(Family.all(TransformComponent.class, TextureComponent.class).get());
         this.batch = CarGame.batch;

@@ -7,9 +7,9 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.CpuPolygonSpriteBatch;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
-import com.tony.car.constant.Constant;
+import com.tony.car.constant.GameConfig;
+import com.tony.car.status.Constant;
 import com.tony.car.manage.ManagerScreen;
-import com.tony.car.screen.LoadingScreen;
 
 public class CarGame extends Game {
     public static Batch batch;
@@ -22,7 +22,7 @@ public class CarGame extends Game {
     public void create() {
         initInstance();
         managerScreen = new ManagerScreen();
-        managerScreen.setStatus(0);
+        GameConfig.CURRENTSCREEN = 0;
     }
 
     private void initInstance(){

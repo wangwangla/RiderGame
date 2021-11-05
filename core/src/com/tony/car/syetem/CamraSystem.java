@@ -6,7 +6,7 @@ import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IteratingSystem;
 import com.tony.car.component.CameraComponent;
 import com.tony.car.component.CarComponent;
-import com.tony.car.constant.Constant;
+import com.tony.car.status.Constant;
 
 /**
  * 相机跟着车移动

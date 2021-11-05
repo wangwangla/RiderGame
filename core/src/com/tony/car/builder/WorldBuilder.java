@@ -14,16 +14,13 @@ import com.badlogic.gdx.maps.tiled.objects.TiledMapTileMapObject;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
-import com.badlogic.gdx.scenes.scene2d.Group;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.codeandweb.physicseditor.PhysicsShapeCache;
 import com.tony.car.component.MoveComponent;
 import com.tony.car.component.RoadComponent;
 import com.tony.car.component.TextureComponent;
 import com.tony.car.component.TransformComponent;
-import com.tony.car.constant.Constant;
-
-import static com.tony.car.constant.Constant.PPM;
+import com.tony.car.status.Constant;
+import static com.tony.car.status.Constant.PPM;
 
 public class WorldBuilder {
     private Engine engine;
@@ -72,8 +69,6 @@ public class WorldBuilder {
                 }
                 Body body = physicsBodies.createBody(name, world, scaleX * PPM, scaleY * PPM);
                 body.setTransform(x * PPM, y * PPM, (float) Math.toRadians(rotation));
-
-
                 Entity entity = new Entity();
 //                根据状态  进行分类  （先不写）
                 entity.add(new RoadComponent());
@@ -86,12 +81,6 @@ public class WorldBuilder {
                 engine.addEntity(entity);
 
                 body.setUserData(entity);
-
-//                Image image = new Image(textureRegion);
-//                image.setSize(width, height);
-//                image.setPosition(x, y-11);
-////                stage.addActor(image);
-//                image.setRotation(rotation);
             }
         }
     }

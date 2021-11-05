@@ -1,11 +1,10 @@
 package com.tony.car.screen;
 
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.Align;
-import com.tony.car.constant.Constant;
+import com.tony.car.status.Constant;
 import com.tony.car.screen.base.BaseScreen;
 
 public class LoadingScreen extends BaseScreen {

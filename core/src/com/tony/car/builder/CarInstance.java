@@ -25,9 +25,9 @@ import com.tony.car.component.MoveComponent;
 import com.tony.car.component.TextureComponent;
 import com.tony.car.component.TransformComponent;
 import com.tony.car.constant.CarConfig;
-import com.tony.car.constant.Constant;
+import com.tony.car.status.Constant;
 
-import static com.tony.car.constant.Constant.PPM;
+import static com.tony.car.status.Constant.PPM;
 
 public class CarInstance {
     private Body rearWheelBody;

@@ -9,7 +9,9 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.tony.car.component.CarComponent;
 import com.tony.car.component.WheelComponent;
 import com.tony.car.constant.CarConfig;
-import com.tony.car.constant.Constant;
+import com.tony.car.constant.GameConfig;
+import com.tony.car.status.Constant;
+import com.tony.car.status.GameStatus;
 
 /**
  * 车系统  控制小车运动
@@ -26,15 +28,19 @@ public class CarSystem extends IteratingSystem {
     protected void processEntity(Entity entity, float v) {
         WheelComponent wheelComponent = wheelM.get(entity);
         CarComponent carComponent = carM.get(entity);
-        if (Gdx.input.isTouched()){
-            if (Constant.jiechu){
-                right(wheelComponent);
-            }else {
-                rotation(carComponent);
-            }
-            setDownForce(carComponent);
+        if (GameStatus.CARDIE == GameConfig.CURRENTSTATUS){
+
         }else {
-            stop(wheelComponent);
+            if (Gdx.input.isTouched()){
+                if (Constant.jiechu){
+                    right(wheelComponent);
+                }else {
+                    rotation(carComponent);
+                }
+                setDownForce(carComponent);
+            }else {
+                stop(wheelComponent);
+            }
         }
         Constant.jiechu = false;
     }
