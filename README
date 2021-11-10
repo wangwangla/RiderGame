@@ -53,3 +53,34 @@ for(int i = 0; i < this.systems.size; ++i) {
 ```
 ## 总结
 引擎加入系统，加入实体之后，执行更新方法。
+
+
+## 执行顺序
+
+先执行show，在执行resize,如果需要布局可以拉伸，将初始化放在show，将位置放在resize
+
+```
+:show
+resize
+```
+
+所有都放在一个stage中，相机一直是的stage居中
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

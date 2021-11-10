@@ -8,8 +8,8 @@ public interface CarConfig {
     float baseX = 2;
     float baseY = 10;
     //力
-    float force = 40;
+    float force = 50;
     //
     Vector2 carAngSpeed = new Vector2(1,0);
-    Vector2 forceDown = new Vector2(140,0);
+    Vector2 forceDown = new Vector2(120,0);
 }

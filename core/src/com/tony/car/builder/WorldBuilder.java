@@ -85,7 +85,6 @@ public class WorldBuilder {
         }
     }
 
-
     public void setPosition(Camera camera) {
         Vector2 position = carInstance.getPosition();
 //        if (group!=null) {
@@ -93,6 +92,6 @@ public class WorldBuilder {
 //        }
         camera.position.set(position.x + 1/2.0F, Constant.WORLDHIGHT/2 ,0);
         camera.update();
-        carInstance.update();
+        carInstance.update(position);
     }
 }

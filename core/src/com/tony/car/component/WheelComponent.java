@@ -6,9 +6,7 @@ import com.badlogic.gdx.physics.box2d.joints.WheelJoint;
 public class WheelComponent implements Component {
     public float staus;
     public WheelJoint wheelJoint;
-
-    public float speed  = 50;
-
+    public float speed  = 49F;
     public void setStaus(float staus) {
         this.staus = staus;
     }

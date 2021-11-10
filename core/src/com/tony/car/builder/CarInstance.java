@@ -27,7 +27,6 @@ import com.tony.car.component.TransformComponent;
 import com.tony.car.constant.CarConfig;
 import com.tony.car.status.Constant;
 
-import static com.tony.car.status.Constant.PPM;
 
 public class CarInstance {
     private Body rearWheelBody;
@@ -57,17 +56,10 @@ public class CarInstance {
         BodyDef bd = new BodyDef();
 
         bd.type = BodyDef.BodyType.DynamicBody;
-        bd.position.set(CarConfig.baseX +0.0f,CarConfig.baseY+0.4f);
-//        carBody = world.createBody(bd);
-//        carBody.createFixture(chassis, 8.85f);
-        PhysicsShapeCache physicsShapeCache = new PhysicsShapeCache("carDemo.xml");
-        carBody = physicsShapeCache.createBody("cardemo",world,PPM,PPM);
-//        carBody.getPosition().set(baseX,baseY+0.4f);
-        carBody.setTransform(CarConfig.baseX-0.67F,CarConfig.baseY+0.25f,0);
-//        bd.position.set(baseX+0.0f,baseY+0.4f);
+        bd.position.set(CarConfig.baseX +0.0f,CarConfig.baseY+0.5f);
+        carBody = world.createBody(bd);
+        carBody.createFixture(chassis, 8.85f);
 
-        MassData massData = carBody.getMassData();
-        massData.center.set(0.9F,0F);
         FixtureDef fd = new FixtureDef();
         fd.shape = circle;
         fd.density = 39f;
@@ -128,11 +120,10 @@ public class CarInstance {
         return carBody.getPosition();
     }
 
-    public void update() {
+    public void update(Vector2 position) {
         float angle = getAngle();
-        Vector2 position = carBody.getPosition();
         carTexture.setOrigin(Align.center);
-        carTexture.setPosition(position.x*(1/PPM),position.y*(1/PPM), Align.center);
+        carTexture.setPosition(position.x*(Constant.PPMV),position.y*(Constant.PPMV)+6, Align.center);
         carTexture.setRotation((float)Math.toDegrees(angle));
     }
 }

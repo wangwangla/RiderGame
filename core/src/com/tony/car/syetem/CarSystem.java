@@ -34,11 +34,12 @@ public class CarSystem extends IteratingSystem {
             if (Gdx.input.isTouched()){
                 if (Constant.jiechu){
                     right(wheelComponent);
+                    setDownForce(carComponent);
                 }else {
                     rotation(carComponent);
                 }
-                setDownForce(carComponent);
             }else {
+                carComponent.carBody.setAngularVelocity(0);
                 stop(wheelComponent);
             }
         }
@@ -60,6 +61,7 @@ public class CarSystem extends IteratingSystem {
     }
 
     public void stop(WheelComponent wheelComponent) {
+
         wheelComponent.wheelJoint.enableMotor(false);
         wheelComponent.wheelJoint.setMotorSpeed(0);
     }
@@ -68,6 +70,7 @@ public class CarSystem extends IteratingSystem {
         Body carBody = carComponent.carBody;
         carBody.setAngularDamping(0);
         carBody.setAngularVelocity(8);
-        carBody.applyLinearImpulse(carComponent.carAngSpeed.set(Constant.anSpeed, 0).scl(carBody.getMass()),carBody.getWorldCenter(), true);
+
+//        carBody.applyLinearImpulse(carComponent.carAngSpeed.set(Constant.anSpeed, 0).scl(carBody.getMass()),carBody.getWorldCenter(), true);
     }
 }

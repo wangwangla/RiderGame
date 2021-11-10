@@ -36,14 +36,13 @@ public class RenderSystem extends IteratingSystem {
             float height = tex.region.getRegionHeight();
             float originX = width * 0.5f;
             float originY = height * 0.5f;
-//            batch.draw(tex.region,
-//                    transform.position.x - originX, transform.position.y - originY,
-//                    originX, originY,
-//                    width, height,
-//                    transform.scale.x, transform.scale.y,
-//                    transform.angle);
+            batch.draw(tex.region,
+                    transform.position.x - originX, transform.position.y - originY,
+                    originX, originY,
+                    width, height,
+                    transform.scale.x, transform.scale.y,
+                    transform.angle);
         }
-
         batch.end();
         renderArray.clear();
     }
