@@ -37,6 +37,10 @@ public class CarInstance {
         this.engine = engine;
     }
 
+    public Body getCarBody() {
+        return carBody;
+    }
+
     public void createCar(World world){
         float m_hz =15.0f;
         float m_zeta = 0.7f;

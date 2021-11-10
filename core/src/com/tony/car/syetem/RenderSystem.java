@@ -7,6 +7,7 @@ import com.badlogic.ashley.systems.IteratingSystem;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.utils.Array;
 import com.tony.car.CarGame;
+import com.tony.car.component.CarComponent;
 import com.tony.car.component.TextureComponent;
 import com.tony.car.component.TransformComponent;
 
@@ -18,12 +19,13 @@ public class RenderSystem extends IteratingSystem {
     private Batch batch;
     private final ComponentMapper<TransformComponent> transformM = ComponentMapper.getFor(TransformComponent.class);
     private final ComponentMapper<TextureComponent> rendererM = ComponentMapper.getFor(TextureComponent.class);
-
+    private final ComponentMapper<CarComponent> carM = ComponentMapper.getFor(CarComponent.class);
     public RenderSystem() {
         super(Family.all(TransformComponent.class, TextureComponent.class).get());
         this.batch = CarGame.batch;
         renderArray = new Array<>();
     }
+
 
     @Override
     public void update(float deltaTime) {
@@ -34,11 +36,12 @@ public class RenderSystem extends IteratingSystem {
             TextureComponent tex = rendererM.get(entity);
             float width = tex.region.getRegionWidth();
             float height = tex.region.getRegionHeight();
-            float originX = width * 0.5f;
-            float originY = height * 0.5f;
+            float originX = width;
+            float originY = height;
+
             batch.draw(tex.region,
-                    transform.position.x - originX, transform.position.y - originY,
-                    originX, originY,
+                    transform.position.x, transform.position.y,
+                    0,0,
                     width, height,
                     transform.scale.x, transform.scale.y,
                     transform.angle);

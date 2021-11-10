@@ -14,7 +14,10 @@ import com.badlogic.gdx.maps.tiled.objects.TiledMapTileMapObject;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
+import com.badlogic.gdx.scenes.scene2d.Group;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.codeandweb.physicseditor.PhysicsShapeCache;
+import com.tony.car.component.CarComponent;
 import com.tony.car.component.MoveComponent;
 import com.tony.car.component.RoadComponent;
 import com.tony.car.component.TextureComponent;
@@ -49,7 +52,7 @@ public class WorldBuilder {
                 float rotation = 0;
                 if (properties1.containsKey("rotation")) {
                     rotation = -(float) properties1.get("rotation");
-                    System.out.println(rotation);
+
                 }
                 float width = (float) properties1.get("width");
                 float height = (float) properties1.get("height");
@@ -61,7 +64,8 @@ public class WorldBuilder {
                 float scaleX = width / textureRegion.getRegionWidth();
                 float scaleY = height / textureRegion.getRegionHeight();
                 String name = split[0];
-
+                textureRegion.setRegionWidth((int)width);
+                textureRegion.setRegionHeight((int)height);
                 if (tiledMapTileMapObject.isFlipVertically()) {
                     name = name + "_2";
                 } else if (tiledMapTileMapObject.isFlipHorizontally()) {
@@ -78,9 +82,13 @@ public class WorldBuilder {
                 entity.add(new TextureComponent(textureRegion));
 //                刚体
                 entity.add(new MoveComponent(body));
+                entity.add(new CarComponent(carInstance.getCarBody()));
                 engine.addEntity(entity);
 
                 body.setUserData(entity);
+
+                Image image = new Image(textureRegion);
+                group.addActor(image);
             }
         }
     }
@@ -93,5 +101,10 @@ public class WorldBuilder {
         camera.position.set(position.x + 1/2.0F, Constant.WORLDHIGHT/2 ,0);
         camera.update();
         carInstance.update(position);
+    }
+
+    private Group group = new Group();
+    public void setGroup(Group group) {
+        this.group = group;
     }
 }
