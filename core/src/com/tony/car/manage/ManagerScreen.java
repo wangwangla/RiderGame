@@ -9,16 +9,12 @@ import com.tony.car.screen.LoadingScreen;
 import com.tony.car.screen.MainScreen;
 
 public class ManagerScreen {
-    private int currentStatus ;
-
+    private int currentStatus = -1 ;
     private Screen currentScreen;
     float time = 0;
 
     public ManagerScreen(){
-        if (currentScreen == null){
-            currentScreen = new LoadingScreen();
-            currentScreen.show();
-        }
+
     }
 
     public void resize(int width, int height) {
@@ -29,13 +25,16 @@ public class ManagerScreen {
 
     public void update() {
         if (currentStatus != GameConfig.CURRENTSCREEN) {
-            if (GameConfig.CURRENTSCREEN == ScreenConfig.MAIN){
+            if (GameConfig.CURRENTSCREEN == 0){
+                currentScreen = new LoadingScreen();
+            }else if (GameConfig.CURRENTSCREEN == ScreenConfig.MAIN){
                 currentScreen = new MainScreen();
             }else if (GameConfig.CURRENTSCREEN == ScreenConfig.GAME){
                 currentScreen = new GameScreen();
             }
             if (currentScreen!=null) {
                 currentScreen.show();
+                resize(Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
                 currentStatus = GameConfig.CURRENTSCREEN;
             }
         }

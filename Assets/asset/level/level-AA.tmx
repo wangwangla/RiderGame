@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="140" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="243">
+ <tileset firstgid="1" source="../Enemies.tsx"/>
+ <tileset firstgid="5" source="../Platforms.tsx"/>
+ <tileset firstgid="53" source="../Grounds.tsx"/>
+ <tileset firstgid="69" source="../Currency.tsx"/>
+ <objectgroup id="1" name="Ground"/>
+ <objectgroup id="2" name="Top">
+  <object id="221" type="platform" gid="29" x="-132.312" y="1378.75" width="681.062" height="12"/>
+  <object id="242" type="platform" gid="29" x="547.469" y="1380" width="681.062" height="12" rotation="-59"/>
+ </objectgroup>
+ <objectgroup id="3" name="Currency"/>
+</map>

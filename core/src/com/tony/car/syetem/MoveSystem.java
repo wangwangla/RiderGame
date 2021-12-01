@@ -23,8 +23,6 @@ public class MoveSystem extends IteratingSystem {
     protected void processEntity(Entity entity, float v) {
         TransformComponent transform = transformM.get(entity);
         CarComponent carComponent = carMapper.get(entity);
-        System.out.println();
         transform.position.x = transform.basePosition.x - carComponent.carBody.getPosition().x * (1/Constant.PPM) + Constant.GAMEWIDTH / 2;
-        System.out.println(transform.position);
     }
 }

@@ -16,6 +16,7 @@ import com.tony.car.constant.GameConfig;
 import com.tony.car.status.Constant;
 import com.tony.car.screen.base.BaseScreen;
 import com.tony.car.syetem.CamraSystem;
+import com.tony.car.syetem.CarMoveSystem;
 import com.tony.car.syetem.CarSystem;
 import com.tony.car.syetem.MoveSystem;
 
@@ -32,6 +33,7 @@ public class GameScreen extends BaseScreen {
         world = new World(new Vector2(0,-9),true);
         render = new Box2DDebugRenderer();
     }
+
     private OrthographicCamera camera;
     @Override
     public void show() {
@@ -49,6 +51,7 @@ public class GameScreen extends BaseScreen {
         engine.addSystem(new MoveSystem());
         engine.addSystem(new RenderSystem());
         engine.addSystem(new CamraSystem());
+        engine.addSystem(new CarMoveSystem());
         WorldBuilder builder = new WorldBuilder(engine);
         group = new Group();
         builder.setGroup(group);

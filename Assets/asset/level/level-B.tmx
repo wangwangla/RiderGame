@@ -2,24 +2,9 @@
 <map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="99" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="3" nextobjectid="257">
  <tileset firstgid="1" source="../Enemies.tsx"/>
  <tileset firstgid="5" source="../Platforms.tsx"/>
- <tileset firstgid="52" source="../Grounds.tsx"/>
- <tileset firstgid="68" source="../Currency.tsx"/>
- <objectgroup id="1" name="Ground">
-  <object id="123" type="ground" gid="59" x="-10.5455" y="1371" width="232" height="2965.68" rotation="90"/>
-  <object id="240" type="ground" gid="59" x="2293.45" y="1371" width="232" height="1356.59" rotation="90"/>
-  <object id="241" type="ground" gid="59" x="-906.55" y="1371" width="232" height="1356.59" rotation="90"/>
-  <object id="242" type="ground" gid="53" x="179.54" y="2038.49" width="207.931" height="896.333"/>
-  <object id="246" type="ground" gid="53" x="1141.29" y="2036.24" width="207.931" height="896.333"/>
-  <object id="247" type="ground" gid="53" x="2068.51" y="2037.46" width="207.931" height="896.333"/>
-  <object id="248" type="ground" gid="67" x="2317.85" y="1656.1" width="41.2448" height="446.934" rotation="-9.91327"/>
-  <object id="249" type="ground" gid="67" x="1391" y="1646.87" width="41.2448" height="446.934" rotation="-9.91327"/>
-  <object id="250" type="ground" gid="67" x="429.531" y="1654.21" width="41.2448" height="446.934" rotation="-9.91327"/>
-  <object id="251" type="ground" gid="67" x="-0.806106" y="1414.36" width="60.6449" height="670.713" rotation="270.252"/>
-  <object id="252" type="ground" gid="67" x="957.781" y="1396.4" width="41.2448" height="559.421" rotation="269.842"/>
-  <object id="253" type="ground" gid="67" x="1888.86" y="1399.8" width="41.2448" height="559.421" rotation="269.842"/>
-  <object id="254" type="ground" gid="67" x="2791.61" y="1397.35" width="41.2448" height="559.421" rotation="269.842"/>
-  <object id="255" type="ground" gid="67" x="3723.72" y="1397.35" width="41.2448" height="559.421" rotation="269.842"/>
- </objectgroup>
+ <tileset firstgid="53" source="../Grounds.tsx"/>
+ <tileset firstgid="69" source="../Currency.tsx"/>
+ <objectgroup id="1" name="Ground"/>
  <objectgroup id="2" name="Top">
   <object id="207" type="platform" gid="30" x="2792.65" y="1374" width="374.848" height="12"/>
   <object id="223" type="platform" gid="30" x="-2.83333" y="1374" width="194.333" height="12"/>

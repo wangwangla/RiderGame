@@ -16,6 +16,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.physics.box2d.joints.WheelJoint;
 import com.badlogic.gdx.physics.box2d.joints.WheelJointDef;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Align;
 import com.codeandweb.physicseditor.PhysicsShapeCache;
 import com.tony.car.component.CameraComponent;
@@ -106,6 +107,7 @@ public class CarInstance {
         car.add(new TextureComponent(new TextureRegion(new Texture("cardemo.png"))));
         car.add(new MoveComponent(carBody));
         car.add(new CarComponent(carBody));
+        car.add(new TextureComponent(((TextureRegionDrawable)(carTexture.getDrawable())).getRegion()));
         engine.addEntity(car);
         carBody.setUserData(car);
 
@@ -126,8 +128,8 @@ public class CarInstance {
 
     public void update(Vector2 position) {
         float angle = getAngle();
-        carTexture.setOrigin(Align.center);
-        carTexture.setPosition(position.x*(Constant.PPMV),position.y*(Constant.PPMV)+6, Align.center);
-        carTexture.setRotation((float)Math.toDegrees(angle));
+//        carTexture.setOrigin(Align.center);
+//        carTexture.setPosition(position.x*(Constant.PPMV),position.y*(Constant.PPMV)+6, Align.center);
+//        carTexture.setRotation((float)Math.toDegrees(angle));
     }
 }

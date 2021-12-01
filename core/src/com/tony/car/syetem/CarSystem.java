@@ -61,7 +61,6 @@ public class CarSystem extends IteratingSystem {
     }
 
     public void stop(WheelComponent wheelComponent) {
-
         wheelComponent.wheelJoint.enableMotor(false);
         wheelComponent.wheelJoint.setMotorSpeed(0);
     }

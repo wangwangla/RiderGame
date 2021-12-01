@@ -36,12 +36,19 @@ public class RenderSystem extends IteratingSystem {
             TextureComponent tex = rendererM.get(entity);
             float width = tex.region.getRegionWidth();
             float height = tex.region.getRegionHeight();
+
             float originX = width;
             float originY = height;
-
+            if (transform.center){
+                originX = -width/2;
+                originY = -height/2;
+            }else {
+                originX = 0;
+                originY = 0;
+            }
             batch.draw(tex.region,
-                    transform.position.x, transform.position.y,
-                    0,0,
+                    transform.position.x - 30, transform.position.y,
+                    originX,originY,
                     width, height,
                     transform.scale.x, transform.scale.y,
                     transform.angle);

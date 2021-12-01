@@ -45,9 +45,6 @@ public class CarGame extends Game {
         stageViewport.apply();
         Constant.GAMEWIDTH = stageViewport.getWorldWidth();
         Constant.GAMEHIGHT = stageViewport.getWorldHeight();
-        if (managerScreen!=null) {
-            managerScreen.resize(width, height);
-        }
     }
 
     @Override
@@ -62,11 +59,10 @@ public class CarGame extends Game {
         super.dispose();
         assetManager.dispose();
         assetManager = null;
-        if (batch!=null) {
+        if (batch != null) {
             batch.dispose();
             batch = null;
         }
         managerScreen.dispose();
     }
-
 }

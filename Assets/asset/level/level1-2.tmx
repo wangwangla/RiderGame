@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="120" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="5" nextobjectid="110">
+ <editorsettings>
+  <export target="level1-1.tmx" format="tmx"/>
+ </editorsettings>
+ <tileset firstgid="1" source="../Grounds.tsx"/>
+ <tileset firstgid="17" source="../Platforms.tsx"/>
+ <tileset firstgid="66" source="../Currency.tsx"/>
+ <tileset firstgid="69" source="../Enemies.tsx"/>
+ <objectgroup id="3" name="Ground">
+  <object id="29" type="ground" gid="14" x="-0.575757" y="2207.73" width="364" height="833.121"/>
+  <object id="37" type="ground" gid="2" x="142.94" y="2208.18" width="252" height="1081"/>
+  <object id="38" type="ground" gid="2" x="3157.84" y="1652.86" width="175.091" height="735.788"/>
+  <object id="49" type="ground" gid="14" x="3511" y="1666.22" width="329.757" height="798.758"/>
+  <object id="55" type="ground" gid="14" x="-51.6364" y="2207.5" width="3998.85" height="683.848"/>
+  <object id="88" type="ground" gid="2" x="2807.45" y="1846.11" width="175.091" height="716.788"/>
+  <object id="89" type="ground" gid="11" x="1831.79" y="1437.44" width="267.879" height="239.818"/>
+  <object id="90" type="ground" gid="2147483659" x="2094.06" y="1372.09" width="267.879" height="170.818"/>
+  <object id="91" type="ground" gid="2147483659" x="870.061" y="1524.09" width="267.879" height="145.818"/>
+  <object id="93" type="ground" gid="15" x="1109.33" y="1546.33" width="370.667" height="174.333"/>
+  <object id="94" type="ground" gid="14" x="1427" y="1538.17" width="936.303" height="165"/>
+  <object id="95" type="ground" gid="14" x="2140.94" y="2184.2" width="840.303" height="849.848"/>
+  <object id="96" type="ground" gid="16" x="375" y="1600" width="26" height="424"/>
+  <object id="97" type="ground" gid="2147483664" x="862" y="1601.67" width="22" height="230"/>
+  <object id="98" type="ground" gid="16" x="2964.67" y="1598.33" width="24.6667" height="438"/>
+  <object id="99" type="ground" gid="2147483664" x="3146.33" y="1599" width="31.3333" height="483.333"/>
+  <object id="100" type="ground" gid="16" x="3313.33" y="1596.33" width="24.6667" height="651.333"/>
+  <object id="101" type="ground" gid="2147483664" x="3487.67" y="1629.67" width="78" height="758"/>
+  <object id="107" type="ground" gid="16" x="920" y="1530.79" width="56.7879" height="612.788" rotation="-90"/>
+  <object id="109" type="ground" gid="16" x="3535.61" y="1526.61" width="56.7879" height="612.788" rotation="-90"/>
+ </objectgroup>
+ <objectgroup id="2" name="Road">
+  <object id="12" type="platform" gid="40" x="1466.63" y="1373" width="489.5" height="12"/>
+  <object id="75" type="platform" gid="41" x="0" y="1374" width="188" height="12"/>
+  <object id="76" type="platform" gid="40" x="187.19" y="1374" width="290.91" height="12" rotation="-44.26"/>
+  <object id="77" type="platform" gid="23" x="1147.33" y="1519.64" width="321" height="158"/>
+  <object id="78" type="platform" gid="44" x="872.67" y="1367.5" width="189" height="255" rotation="-277.81"/>
+  <object id="80" type="platform" gid="45" x="1952.5" y="1374" width="143" height="193"/>
+  <object id="81" type="platform" gid="27" x="1973.06" y="1174" width="220" height="176" rotation="330.66"/>
+  <object id="82" type="platform" gid="33" x="1994" y="1162" width="42" height="12" rotation="-5.7"/>
+  <object id="83" type="platform" gid="2147483693" x="2135.5" y="1371.5" width="143" height="193" rotation="-16"/>
+  <object id="84" type="platform" gid="40" x="2268.53" y="1332" width="541.606" height="12"/>
+  <object id="85" type="platform" gid="18" x="2799.67" y="1335" width="186" height="186"/>
+  <object id="86" type="platform" gid="18" x="3150" y="1117" width="186" height="186"/>
+  <object id="87" type="platform" gid="40" x="3500" y="873" width="341" height="12"/>
+ </objectgroup>
+ <objectgroup id="4" name="Currency">
+  <object id="102" type="currency" gid="68" x="537.611" y="997.466" width="52.7789" height="69.0687"/>
+  <object id="103" type="currency" gid="68" x="625.611" y="917.466" width="52.7789" height="69.0687"/>
+  <object id="104" type="currency" gid="68" x="437.611" y="1089.47" width="52.7789" height="69.0687"/>
+  <object id="105" type="currency" gid="68" x="2239.61" y="1195.47" width="52.7789" height="69.0687"/>
+  <object id="106" type="currency" gid="68" x="2349.61" y="1193.47" width="52.7789" height="69.0687"/>
+ </objectgroup>
+</map>
